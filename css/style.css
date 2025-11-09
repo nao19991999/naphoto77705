@@ -5,4 +5,79 @@ img {
 
 html {
   scroll-behavior: smooth;
+}
+
+.header {
+  background-color: antiquewhite;
+  width: 5%;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header__nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+}
+.header__nav_line {
+  width: 3em;
+  height: 3px;
+  background-color: #333333;
+  margin-bottom: 0.5em;
+}
+.header__icon {
+  max-width: 100px;
+  height: auto;
+  margin-block: 1em;
+}
+.header__logo {
+  height: 65%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__logo p {
+  writing-mode: sideways-rl;
+}
+.header__insta {
+  margin-bottom: 1em;
+}
+.header__insta a {
+  display: block;
+}
+.header__insta a img {
+  max-width: 25px;
+}
+.header__cart a {
+  display: block;
+}
+.header__cart a img {
+  max-width: 25px;
+}
+
+.main__container .kv__movie {
+  width: 100%;
+  height: 100vh;
+  background-color: beige;
+}
+.main__container .kv__movie_img {
+  background-image: url(/img/kv__img.jpg);
+  width: 95%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+.main__container .kv__movie_img h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #ffffff;
 }/*# sourceMappingURL=style.css.map */
