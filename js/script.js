@@ -10,3 +10,11 @@ document.querySelectorAll('.history__list__content_ttl_button').forEach(ttl => {
     if (content.classList.contains('open')) { icon.textContent = 'ー'; } else { icon.textContent = '＋'; }
   });
 });
+
+const navBtn = document.getElementById(`js_nav_btn`);
+const navWindow = document.getElementById(`js_nav_window`);
+
+navBtn.addEventListener(`click` ,() =>{
+  navBtn.classList.toggle(`is-open`);
+    navWindow.classList.toggle(`is-open`);
+});
