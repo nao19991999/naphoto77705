@@ -432,7 +432,7 @@ html {
   right: -100%;
   width: 70%;
   height: 100vh;
-  background-color: #f5abab;
+  background-color: antiquewhite;
   transition: right 0.3s ease;
   z-index: 30;
 }
@@ -524,6 +524,7 @@ html {
 .kv__container .kv__movie_img h1 {
   font-size: 2.4242424242vw;
   font-weight: bold;
+  margin: 20px auto 0;
 }
 @media (max-width: 1100px) {
   .kv__container .kv__movie_img h1 {
@@ -532,15 +533,15 @@ html {
 }
 
 .history {
-  background-color: #f5abab;
+  background: beige;
 }
 .history__container {
-  max-width: 1000px;
+  max-width: 1700px;
   width: 100%;
   margin: 0 auto;
-  border: 3px solid #333333;
-  background-color: #ffffff;
+  background: #f4f4f4;
   padding-block: 50px 100px;
+  border-radius: 10px;
 }
 .history__header {
   max-width: 200px;
@@ -553,7 +554,7 @@ html {
   font-size: 24px;
 }
 .history__list {
-  max-width: 900px;
+  max-width: 1500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -570,20 +571,22 @@ html {
   top: 150px;
   left: 50%;
   transform: translateX(-50%);
-  width: 2px;
+  width: 8px;
   height: calc(100% - 150px);
-  background-color: #6fc46c;
+  background-color: #ffffff;
   z-index: 1;
 }
 .history__list__head {
   margin: 0 auto 30px;
   max-width: 150px;
   aspect-ratio: 1/1;
-  background-color: #6fc46c;
+  background: #062b71;
+  color: #ffffff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.4vw;
   text-align: center;
 }
 .history__list__head__ttl {
@@ -610,24 +613,33 @@ html {
 }
 .history__list__content_text {
   font-size: 18px;
+  margin-bottom: 8px;
+  text-align: center;
 }
 @media (max-width: 1100px) {
   .history__list__content_text {
     text-align: center;
   }
 }
-.history__list__content_text02 {
+.history__list__content_text02_text_list {
+  display: block;
+}
+.history__list__content_text02_img_list {
   display: flex;
   gap: 5px;
 }
 @media (max-width: 1100px) {
-  .history__list__content_text02 {
+  .history__list__content_text02_img_list {
     flex-direction: column;
     gap: 20px;
   }
 }
 .history__list__content_text02 .content_text02 {
   flex: 1;
+}
+.history__list__content_text02 .content_text02_p {
+  text-align: center;
+  margin-bottom: 8px;
 }
 @media (max-width: 1100px) {
   .history__list__content_text02 .content_text02_p {
@@ -650,11 +662,16 @@ html {
 }
 .history__list__content_ttl_button {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   cursor: pointer;
+  position: relative;
+}
+.history__list__content_ttl_button .ttl_text {
+  flex: 1;
+  text-align: center;
 }
 .history__list__content_ttl_button .toggle_icon {
+  margin-right: 60px;
   font-size: 24px;
   transition: transform 0.4s;
 }
@@ -679,8 +696,8 @@ html {
   padding: 10px;
   flex: 1;
   border-radius: 10px;
-  border: 2px solid #b7c46c;
   position: relative;
+  background: #ffffff;
 }
 @media (max-width: 1100px) {
   .history__list__out, .history__list__in {
@@ -693,8 +710,8 @@ html {
   position: absolute;
   transform: translateX(-50%);
   width: 25px;
-  height: 2px;
-  background-color: #6fc46c;
+  height: 5px;
+  background: #ffffff;
 }
 @media (max-width: 1100px) {
   .history__list__out::after, .history__list__in::after {
@@ -707,5 +724,41 @@ html {
 }
 .history__list__in::after {
   top: 100px;
-  left: -3%;
+  left: -5%;
+}
+.history .img_modal {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+}
+.history .img_modal__box {
+  width: 60vw;
+  max-width: 800px;
+  max-height: 80vh;
+  background: antiquewhite;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.history .img_modal__content {
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  border-radius: 10px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.history .img_modal__close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #ffffff;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

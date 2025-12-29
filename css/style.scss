@@ -30,7 +30,6 @@ html {
 
     @media (max-width:1100px) {
             background-color: transparent;
-            // z-index: 1;
             padding: 20px 20px 0 0;
         }
 
@@ -44,7 +43,6 @@ html {
         z-index: 50;
 
         &_line {
-            // width: 3em;
             width: 100%;
             height: 3px;
             background-color: #333333;
@@ -71,7 +69,7 @@ html {
         right: -100%;
         width: 70%;
         height: 100vh;
-        background-color: #f5abab;
+        background-color: antiquewhite;
         transition: right 0.3s ease;
         z-index: 30;
 
@@ -145,9 +143,6 @@ html {
     }
 }
 
-
-// header nab クリック時のコード
-
 // main
 .kv__container{
     .kv__movie{
@@ -176,6 +171,7 @@ html {
             h1{
                 font-size: get-vw(48,1980);
                 font-weight: bold;
+                margin: 20px auto 0;
 
                 @media (max-width:1100px) {
                     font-size: get-vw(48,1100);
@@ -187,15 +183,15 @@ html {
 
 // history
 .history{
-    background-color: #f5abab;
+    background: beige;
 
     &__container{
-    max-width: 1000px;
+    max-width: 1700px;
     width: 100%;
     margin: 0 auto;
-    border: 3px solid #333333;
-    background-color: #ffffff;
+    background: #f4f4f4;
     padding-block: 50px 100px;
+    border-radius: 10px;
     }
 
     &__header{
@@ -213,13 +209,12 @@ html {
 
     // 年表リスト開始
     &__list{
-        max-width: 900px;
+        max-width: 1500px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         margin: 0 auto;
-        // border: 3px solid #f5abab;
 
         &__year{
             position: relative;
@@ -231,9 +226,9 @@ html {
             top: 150px;
             left: 50%;
             transform: translateX(-50%);
-            width: 2px;
+            width: 8px;
             height: calc(100% - 150px);
-            background-color: #6fc46c;
+            background-color: #ffffff;
             z-index: 1;
             }
         }
@@ -242,11 +237,13 @@ html {
         margin:0 auto 30px;
         max-width: 150px;
         aspect-ratio: 1/1;
-        background-color: #6fc46c;
+        background: #062b71;
+        color: #ffffff;
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
+        font-size: 1.4vw;
         text-align: center;
 
             &__ttl{
@@ -277,8 +274,10 @@ html {
             }
 
             &_text{
-                // box内の1つ目テキスト
+                // box内の1つ目テキスト(デビュー曲～）
                 font-size: 18px;
+                margin-bottom: 8px;
+                text-align: center;
 
                 @media (max-width:1100px) {
                     text-align: center;
@@ -286,19 +285,27 @@ html {
             }
 
             &_text02{
-                // box内の2つ目テキスト（画像）
+                // 出来事のリストテキスト
+                &_text_list{
+                    display: block;
+                }
+                // Photo配置
+                &_img_list{
                 display: flex;
                 gap: 5px;
 
                 @media (max-width:1100px) {
-                    flex-direction: column;
-                    gap: 20px;
+                flex-direction: column;
+                gap: 20px;
+                }
                 }
                 
                 .content_text02{
                     flex: 1;
 
                     &_p{
+                    text-align: center;
+                    margin-bottom: 8px;
                     @media (max-width:1100px) {
                     text-align: center;
                     }
@@ -324,11 +331,17 @@ html {
             &_ttl_button{
                 // ttlの横、＋のアクション
                 display: flex;
-                justify-content: space-around;
                 align-items: center;
                 cursor: pointer;
+                position: relative;
+                
+                .ttl_text{
+                    flex: 1;
+                    text-align: center;
+                }
 
                 .toggle_icon{
+                    margin-right: 60px;
                     font-size: 24px;
                     transition: transform 0.4s;
                 }
@@ -360,8 +373,8 @@ html {
             padding: 10px;
             flex: 1;
             border-radius: 10px;
-            border: 2px solid #b7c46c;
             position: relative;
+            background: #ffffff;
 
             @media (max-width:1100px) {
             margin-inline: 2em;
@@ -373,8 +386,8 @@ html {
             position: absolute;
             transform: translateX(-50%);
             width: 25px;
-            height: 2px;
-            background-color: #6fc46c;
+            height: 5px;
+            background: #ffffff ;
 
             @media (max-width:1100px) {
             display: none;
@@ -389,7 +402,50 @@ html {
 
         &__in::after{
             top: 100px;
-            left: -3%;
+            left: -5%;
+        }
+    }
+
+    // モーダルの実装
+    .img_modal{
+        display: none;
+        position: fixed;
+        z-index: 99999;
+        inset: 0;
+        background: rgba(0,0,0,0.4);
+        justify-content: center;
+        align-items: center;
+
+        // モーダル背景
+        &__box{
+            width: 60vw;
+            max-width: 800px;
+            max-height: 80vh;
+            background: antiquewhite;
+            padding: 10px;
+            border-radius: 10px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        // モーダルないの写真部分
+        &__content{
+            width: 100%;
+            height: auto;
+            max-height: 75vh;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        // モーダル閉じるボタン
+        &__close{
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: #ffffff;
+            cursor: pointer;
         }
     }
     
