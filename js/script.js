@@ -1,3 +1,23 @@
+// ハンバーガーメニュー
+const navBtn = document.getElementById(`js_nav_btn`);
+const navWindow = document.getElementById(`js_nav_window`);
+
+navBtn.addEventListener(`click` ,() =>{
+  navBtn.classList.toggle(`is-open`);
+    navWindow.classList.toggle(`is-open`);
+});
+
+  // navクリックされたらnav閉じる
+const navLinks = document.querySelectorAll(`.header__window_item a`);
+
+navLinks.forEach(link =>{
+  link.addEventListener(`click`, ()=>{
+    navBtn.classList.remove(`is-open`);
+    navWindow.classList.remove(`is-open`);
+  });
+});
+
+
 // 歴史セクションの＋と-
 document.querySelectorAll('.history__list__content_ttl_button').forEach(ttl => {
   ttl.addEventListener('click', () => {
@@ -13,14 +33,6 @@ document.querySelectorAll('.history__list__content_ttl_button').forEach(ttl => {
 });
 
 
-// ハンバーガーメニュー
-const navBtn = document.getElementById(`js_nav_btn`);
-const navWindow = document.getElementById(`js_nav_window`);
-
-navBtn.addEventListener(`click` ,() =>{
-  navBtn.classList.toggle(`is-open`);
-    navWindow.classList.toggle(`is-open`);
-});
 
 // モーダル実装
 const modal = document.getElementById(`imgModal`);
@@ -50,3 +62,36 @@ modal.addEventListener(`click` , (e) =>{
 modalClose.addEventListener(`click`, () =>{
   modal.style.display = `none`;
 });
+
+
+
+// movieモーダル
+const items = document.querySelectorAll(`.movie__item`);
+const Modal = document.getElementById(`videoModal`);
+const modalVideo = document.getElementById(`modalVideo`);
+const closeBtn = document.querySelector(`.modal__close`);
+
+items.forEach(item => {
+  item.addEventListener(`click`, () =>{
+    const videoSrc = item.dataset.video;
+    modalVideo.src = videoSrc;
+    Modal.style.display = `flex`;
+    modalVideo.play();
+  });
+});
+
+    // モーダル閉じる動作のbox
+function closeModal(){
+    Modal.style.display = `none`;
+    modalVideo.pause();
+    modalVideo.src = "";
+}
+    //  背景クリックで閉じる
+Modal.addEventListener(`click` , (e) =>{
+  if(e.target === Modal){
+    closeModal();
+  }
+});
+
+    //  closebtnで閉じる
+closeBtn.addEventListener(`click`, closeModal);

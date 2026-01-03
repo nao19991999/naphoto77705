@@ -16,7 +16,15 @@ html {
     color: #333333;
 }
 
-// header
+body{
+    padding-right: 60px;
+
+    @media (max-width:1100px) {
+        padding-right: 0;
+    }
+}
+
+// *************************************header
 .header {
     background-color: antiquewhite;
     max-width: 60px;
@@ -67,11 +75,12 @@ html {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 70%;
-        height: 100vh;
+        width: 40%;
+        height: 90vh;
         background-color: antiquewhite;
         transition: right 0.3s ease;
         z-index: 30;
+        border-radius: 10px;
 
         &.is-open{
             right: 0;
@@ -79,6 +88,7 @@ html {
 
         &__list{
             padding: 2em;
+            font-size: 24px;
         }
 
         &_item{
@@ -144,6 +154,7 @@ html {
 }
 
 // main
+// ************************************************ KV
 .kv__container{
     .kv__movie{
         width: 100%;
@@ -155,33 +166,38 @@ html {
         }
 
         &_img{
-            width: 95%;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
+            width: 100%;
+            height: 90vh;
+            margin: 0 auto;
             display: flex;
-            flex-direction: column;
-            text-align: center;
             justify-content: center;
+            align-items: center;
+            overflow: hidden;
 
             @media (max-width:1100px) {
             width: 100%;
             }
 
-            h1{
-                font-size: get-vw(48,1980);
-                font-weight: bold;
-                margin: 20px auto 0;
-
-                @media (max-width:1100px) {
-                    font-size: get-vw(48,1100);
-                }
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
+
+            // h1{
+            //     font-size: get-vw(48,1980);
+            //     font-weight: bold;
+            //     margin: 20px auto 0;
+
+            //     @media (max-width:1100px) {
+            //         font-size: get-vw(48,1100);
+            //     }
+            // }
         }
     }
 }
 
-// history
+// **************************************************history
 .history{
     background: beige;
 
@@ -449,4 +465,148 @@ html {
         }
     }
     
+}
+
+// *********************************************** grid
+.family{
+    background: beige;
+    margin-bottom: 100px;
+
+    &__container{
+    max-width: 1700px;
+    width: 100%;
+    margin: 0 auto;
+    background: #f4f4f4;
+    padding-bottom: 100px;
+    }
+
+    &__header{
+        max-width: 200px;
+        width: 100%;
+        margin: 0 auto 30px;
+    }
+
+    &__ttl{
+        // 「Family Shot」テキスト部分
+        text-align: center;
+        font-weight: 600;
+        font-size: 24px;
+    }
+    
+    &__grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 12px;
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 16px;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 4px;
+        }
+    }
+}
+
+
+
+// *********************************************** movei
+.movie{
+    background: beige;
+    margin-bottom: 100px;
+
+    &__container{
+    max-width: 1700px;
+    width: 100%;
+    margin: 0 auto;
+    background: #f4f4f4;
+    padding-bottom: 100px;
+    }
+
+    &__header{
+        max-width: 200px;
+        width: 100%;
+        margin: 0 auto 30px;
+    }
+
+    &__ttl{
+        // 「movie」テキスト部分
+        text-align: center;
+        font-weight: 600;
+        font-size: 24px;
+    }
+
+    &__grid{
+        max-width: 1000px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    &__item{
+        cursor: pointer;
+        text-align: center;
+        margin-bottom: 10px;
+
+        img{
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        &__text{
+            font-size: 24px;
+            text-align: center;
+            margin-top: 5px;
+        }
+    }
+
+    // モーダル画面
+    .modal{
+        display: none;
+        position: fixed;
+        z-index: 99999;
+        inset: 0;
+        background: rgba(0,0,0,0.7);
+        justify-content: center;
+        align-items: center;
+
+        &__content{
+            // モーダル背景
+            width: 60vw;
+            max-width: 800px;
+            max-height: 80vh;
+            background: antiquewhite;
+            padding: 10px;
+            border-radius: 10px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        &__modalVideo{
+            width: 100%;
+            height: auto;
+            max-height: 75vh;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        &__close{
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: #ffffff;
+            cursor: pointer;
+            z-index: 100000;
+        }
+    }
+    
+
 }
